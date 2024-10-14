@@ -7,17 +7,9 @@ public class TestController : ControllerBase
 {
     // app.MapGet("/test", () => "Hello World!");
     // http://localhost:5066/api/Test/test
-    [HttpGet("test")]
+    [HttpGet()]
     public string GetHelloWorldText()
     {
         return "Hello World2!";
-    }
-
-    // app.MapGet("/hello/{name}", (string name) => $"Привет, {name}!");
-    // http://localhost:5066/api/Test/hello/{name}
-    [HttpGet("hello/{name}")]
-    public string GetGreetingByName(string name)
-    {
-        return $"Привет, {name}!";
     }
 }

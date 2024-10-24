@@ -1,9 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-
 // http://localhost:5066/api/Name
-[ApiController]
-[Route("api/[controller]")]
-public class HelloController : ControllerBase
+
+public class HelloController : BaseController
 {
     // app.MapGet("/hello/{name}", (string name) => $"Привет, {name}!");
     // http://localhost:5066/api/Name/{name}

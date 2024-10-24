@@ -1,5 +1,9 @@
-//это неправильный способ для хранения данных
-public static class DataContext
+//это правильный способ для хранения данных
+public class DataContext
 {
-    public static string Str = "";
+    public DataContext()
+    {
+        this.Str = String.Empty;
+    }
+    public string Str { get; set; }
 }

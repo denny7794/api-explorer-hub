@@ -10,4 +10,10 @@ public class TestController : BaseController
     {
         return "Hello World2!";
     }
+
+    [HttpGet("testRequest")]
+    public ActionResult<string> TestRequest()
+    {
+        return BadRequest("Badby World2!");
+    }
 }

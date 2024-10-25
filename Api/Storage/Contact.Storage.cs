@@ -74,4 +74,21 @@ public class ContactStorage
         }
         return false;
     }
+
+    public (int, Contact) SearchContact(int id)
+    {
+        Contact contact;
+        for (int i = 0; i < Contacts.Count; i++)
+        {
+            //if (int.TryParse(Contacts[i].Id, out int int_id))
+            if (!(id is int) || id <= 0) return (2, null);
+
+            if (Contacts[i].Id == id)
+            {
+                contact = Contacts[i];
+                return (1, contact);
+            }
+        }
+        return (0, null);
+    }
 }

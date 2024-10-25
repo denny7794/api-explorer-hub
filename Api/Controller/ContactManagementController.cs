@@ -15,7 +15,7 @@ public class ContactManagementController : BaseController
         bool res = storage.Add(contact);
         if (res)
         {
-            return Ok(contact);
+            return Created();
         }
         return Conflict("Контакт с указанным ID существует");// 409
     }
@@ -42,4 +42,13 @@ public class ContactManagementController : BaseController
         return Conflict("Контакт с указанным ID не нашёлся");// 409
     }
 
+    [HttpGet("contacts/{id}")]
+    public ActionResult<Contact> SearchContact(int id)
+    {
+        (int, Contact) res = storage.SearchContact(id);
+        if (res.Item1 == 0) return NotFound("Контакт не найден");
+        if (res.Item1 == 2) return BadRequest("Ошибка ID");// 400
+        return Ok(res.Item2); // 200
+
+    }
 }

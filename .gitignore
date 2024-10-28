@@ -3,6 +3,9 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+appsettings.Development.json
+appsettings.json
+
 ##
 appsettings.Development.json
 appsettings.json
@@ -490,15 +493,15 @@ $RECYCLE.BIN/
 # FROM CLIENT
 
 # dependencies
-/node_modules
-/.pnp
+node_modules
+.pnp
 .pnp.js
 
 # testing
-/coverage
+coverage
 
 # production
-/build
+build
 
 # misc
 .DS_Store

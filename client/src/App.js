@@ -5,15 +5,16 @@ import TableContact from "./layout/TableContact/TableContact";
 const App = () => {
   const [contacts, setContacts] = useState(
     [
-      { id: 1, name: 'Иван 1', email: 'ivan@mail1.ru' },
-      { id: 2, name: 'Иван 2', email: 'ivan@mail2.ru' },
-      { id: 3, name: 'Иван 3', email: 'ivan@mail3.ru' },
+      { id: 21, name: 'Иван 1', email: 'ivan@mail1.ru' },
+      { id: 12, name: 'Иван 2', email: 'ivan@mail2.ru' },
+      { id: 6, name: 'Иван 3', email: 'ivan@mail3.ru' },
     ]
   );
 
   const addContact = () => {
+    const newId = contacts.sort((x, y) => x.id - y.id)[contacts.length - 1].id + 1;
     const item = {
-      id: Math.floor(Math.random() * 100),
+      id: newId,
       name: 'Иван 3',
       email: 'ivan@mail3.ru'
     }

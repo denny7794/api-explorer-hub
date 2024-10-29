@@ -12,9 +12,7 @@ const App = () => {
   );
 
   const addContact = () => {
-    //const newId = contacts.sort((x, y) => x.id - y.id)[contacts.length - 1].id + 1;
-    let newId = -1;
-    // Math.max() м исп-ть
+    const newId = Math.max(...contacts.map(e => e.id)) + 1;
     for (let i = 0; i < contacts.length; i++) {
       const elementId = contacts[i].id;
       if (newId < elementId) {
@@ -22,7 +20,7 @@ const App = () => {
       }
     }
     const item = {
-      id: newId + 1,
+      id: newId,
       name: 'Иван 3',
       email: 'ivan@mail3.ru'
     }

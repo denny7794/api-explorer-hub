@@ -7,6 +7,8 @@ const FormContact = (props) => {
 
     const submit = () => {
         props.addContact(contactName, contactEmail);
+        setContactName("");//обнуляем значение input
+        setContactEmail("");
     }
 
     return (
@@ -16,6 +18,7 @@ const FormContact = (props) => {
                     <div className="mb-3">
                         <label className="form-label">Введите имя:</label>
                         <input className="form-control" type="text" placeholder="вася пупкин"
+                            value={contactName}// связываем переменную contactName со значением input
                             onChange={(e) => { setContactName(e.target.value) }}
                         />
                     </div>
@@ -24,6 +27,7 @@ const FormContact = (props) => {
                         {/*<input className="form-control" type="text" />*/}
                         <textarea
                             className="form-control"
+                            value={contactEmail}
                             onChange={(e) => { setContactEmail(e.target.value) }}
                             rows={2}>
                         </textarea>

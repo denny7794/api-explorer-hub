@@ -12,7 +12,7 @@ const App = () => {
     ]
   );
 
-  const addContact = () => {
+  const addContact = (contactName, contactEmail) => {
     const newId = Math.max(...contacts.map(e => e.id)) + 1;
     for (let i = 0; i < contacts.length; i++) {
       const elementId = contacts[i].id;
@@ -22,8 +22,8 @@ const App = () => {
     }
     const item = {
       id: newId,
-      name: 'Иван 3',
-      email: 'ivan@mail3.ru'
+      name: contactName,
+      email: contactEmail
     }
     setContacts([...contacts, item]);
     console.log(contacts);

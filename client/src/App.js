@@ -17,7 +17,8 @@ const App = () => {
       alert('Заполните все поля');
     }
     else {
-      const newId = Math.max(...contacts.map(e => e.id)) + 1;
+      let newId = Math.max(...contacts.map(e => e.id)) + 1;
+      if (newId <= 0) { newId = 1; }
       for (let i = 0; i < contacts.length; i++) {
         const elementId = contacts[i].id;
         if (newId < elementId) {

@@ -19,6 +19,7 @@ const TableContact = (props) => {
                         props.contacts.map(
                             contact =>
                             (<RowTableContact
+                                key={contact.id}
                                 id={contact.id}
                                 name={contact.name}
                                 email={contact.email}

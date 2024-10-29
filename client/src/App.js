@@ -13,20 +13,25 @@ const App = () => {
   );
 
   const addContact = (contactName, contactEmail) => {
-    const newId = Math.max(...contacts.map(e => e.id)) + 1;
-    for (let i = 0; i < contacts.length; i++) {
-      const elementId = contacts[i].id;
-      if (newId < elementId) {
-        newId = elementId;
+    if (!contactName || !contactEmail) {
+      alert('Заполните все поля');
+    }
+    else {
+      const newId = Math.max(...contacts.map(e => e.id)) + 1;
+      for (let i = 0; i < contacts.length; i++) {
+        const elementId = contacts[i].id;
+        if (newId < elementId) {
+          newId = elementId;
+        }
       }
+      const item = {
+        id: newId,
+        name: contactName,
+        email: contactEmail
+      }
+      setContacts([...contacts, item]);
+      console.log(contacts);
     }
-    const item = {
-      id: newId,
-      name: contactName,
-      email: contactEmail
-    }
-    setContacts([...contacts, item]);
-    console.log(contacts);
   }
 
   return (

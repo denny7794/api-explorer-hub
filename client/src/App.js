@@ -1,22 +1,20 @@
 import axios from 'axios';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TableContact from "./layout/TableContact/TableContact";
 import FormContact from "./layout/FormContact/FormContact";
 
 const baseApiUrl = process.env.REACT_APP_API_URL;
 
 const App = () => {
+
+  const [contacts, setContacts] = useState([]);
+
   const url = `${baseApiUrl}/contacts`;
-  axios.get(url).then(
-    res => console.log(res.data) // ответ сервера
-  );
-  const [contacts, setContacts] = useState(
-    [
-      { id: 21, name: 'Иван 1', email: 'ivan@mail1.ru' },
-      { id: 12, name: 'Иван 2', email: 'ivan@mail2.ru' },
-      { id: 6, name: 'Иван 3', email: 'ivan@mail3.ru' },
-    ]
-  );
+  useEffect(() => {
+    axios.get(url).then(
+      res => setContacts(res.data) // ответ сервера
+    );
+  }, []);
 
   const addContact = (contactName, contactEmail) => {
     if (!contactName || !contactEmail) {

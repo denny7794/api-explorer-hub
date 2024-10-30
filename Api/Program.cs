@@ -11,7 +11,7 @@ opt.AddPolicy("CorsPolicy", policy =>
 {
     policy.AllowAnyMethod()
     .AllowAnyHeader()
-    .WithOrigins("http://localhost:3000"); // с какого адреса разрешен доступ
+    .WithOrigins(args[0]); // с какого адреса разрешен доступ (передается чз аргументы командной строки)
 }));
 
 var app = builder.Build();
